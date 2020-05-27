@@ -1,0 +1,29 @@
+
+Given a string, return true if the number of appearances of "is" anywhere in the string is equal to the number of appearances of "not" anywhere in the string (case sensitive).
+
+
+equalIsNot("This is not") → false
+equalIsNot("This is notnot") → true
+equalIsNot("noisxxnotyynotxisi") → true
+Go...Save, Co
+
+
+public boolean equalIsNot(String str) {
+  str=str.toLowerCase(); 
+  int numIs= 0;
+  int numNot = 0;
+  for(int i=0; i<str.length()-1; i++){
+    if(str.substring(i, i+2).equals("is")){
+      numIs++;
+      
+    }
+  }
+  for(int i=0; i<str.length()-2; i++){
+    if(str.substring(i, i+3).equals("not")){
+      numNot++;
+      
+    }
+  }
+  return numIs == numNot;
+  
+}
