@@ -1,0 +1,24 @@
+
+We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right. Return true if all the g's in the given string are happy.
+
+
+gHappy("xxggxx") → true
+gHappy("xxgxx") → false
+gHappy("xxggyygxx") → false
+
+public boolean gHappy(String str) {
+  boolean result = true;
+  int len = str.length();
+  if(len==1 && str.charAt(0)=='g'){
+    result = false;
+  }
+  if( len>1 && str.charAt(len-1)=='g' && str.charAt(len-2)!='g'){
+    result = false;
+  }
+  for (int i=1;i<len-1; i++){
+      if(str.charAt(i)=='g'&& str.charAt(i-1)!='g' && str.charAt(i+1)!='g'){
+      result = false;
+    }
+    }
+  return result;
+}
